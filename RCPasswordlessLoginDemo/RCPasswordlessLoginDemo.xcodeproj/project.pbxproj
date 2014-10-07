@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		287D8E4B19DA8362000BB214 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D8E4A19DA8362000BB214 /* main.m */; };
+		287D8E4E19DA8362000BB214 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D8E4D19DA8362000BB214 /* AppDelegate.m */; };
+		287D8E5119DA8362000BB214 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D8E5019DA8362000BB214 /* ViewController.m */; };
+		287D8E5419DA8362000BB214 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 287D8E5219DA8362000BB214 /* Main.storyboard */; };
+		287D8E5619DA8362000BB214 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 287D8E5519DA8362000BB214 /* Images.xcassets */; };
+		287D8E5919DA8362000BB214 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 287D8E5719DA8362000BB214 /* LaunchScreen.xib */; };
+		287D8E6519DA8362000BB214 /* RCPasswordlessLoginDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D8E6419DA8362000BB214 /* RCPasswordlessLoginDemoTests.m */; };
+		287D8E7319DA8394000BB214 /* RCPasswordlessLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D8E7019DA8394000BB214 /* RCPasswordlessLogin.m */; };
+		287D8E7419DA8394000BB214 /* RCPasswordlessUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D8E7219DA8394000BB214 /* RCPasswordlessUser.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		287D8E5F19DA8362000BB214 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 287D8E3D19DA8362000BB214 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 287D8E4419DA8362000BB214;
+			remoteInfo = RCPasswordlessLoginDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		287D8E4519DA8362000BB214 /* RCPasswordlessLoginDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCPasswordlessLoginDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		287D8E4919DA8362000BB214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		287D8E4A19DA8362000BB214 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		287D8E4C19DA8362000BB214 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		287D8E4D19DA8362000BB214 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		287D8E4F19DA8362000BB214 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		287D8E5019DA8362000BB214 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		287D8E5319DA8362000BB214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		287D8E5519DA8362000BB214 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		287D8E5819DA8362000BB214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		287D8E5E19DA8362000BB214 /* RCPasswordlessLoginDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RCPasswordlessLoginDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		287D8E6319DA8362000BB214 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		287D8E6419DA8362000BB214 /* RCPasswordlessLoginDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCPasswordlessLoginDemoTests.m; sourceTree = "<group>"; };
+		287D8E6F19DA8394000BB214 /* RCPasswordlessLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCPasswordlessLogin.h; path = ../../objc/RCPasswordlessLogin.h; sourceTree = "<group>"; };
+		287D8E7019DA8394000BB214 /* RCPasswordlessLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCPasswordlessLogin.m; path = ../../objc/RCPasswordlessLogin.m; sourceTree = "<group>"; };
+		287D8E7119DA8394000BB214 /* RCPasswordlessUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCPasswordlessUser.h; path = ../../objc/RCPasswordlessUser.h; sourceTree = "<group>"; };
+		287D8E7219DA8394000BB214 /* RCPasswordlessUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCPasswordlessUser.m; path = ../../objc/RCPasswordlessUser.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		287D8E4219DA8362000BB214 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		287D8E5B19DA8362000BB214 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		287D8E3C19DA8362000BB214 = {
+			isa = PBXGroup;
+			children = (
+				287D8E4719DA8362000BB214 /* RCPasswordlessLoginDemo */,
+				287D8E6119DA8362000BB214 /* RCPasswordlessLoginDemoTests */,
+				287D8E4619DA8362000BB214 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		287D8E4619DA8362000BB214 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				287D8E4519DA8362000BB214 /* RCPasswordlessLoginDemo.app */,
+				287D8E5E19DA8362000BB214 /* RCPasswordlessLoginDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		287D8E4719DA8362000BB214 /* RCPasswordlessLoginDemo */ = {
+			isa = PBXGroup;
+			children = (
+				287D8E4C19DA8362000BB214 /* AppDelegate.h */,
+				287D8E4D19DA8362000BB214 /* AppDelegate.m */,
+				287D8E4F19DA8362000BB214 /* ViewController.h */,
+				287D8E5019DA8362000BB214 /* ViewController.m */,
+				287D8E6E19DA8380000BB214 /* New Group */,
+				287D8E5219DA8362000BB214 /* Main.storyboard */,
+				287D8E5519DA8362000BB214 /* Images.xcassets */,
+				287D8E5719DA8362000BB214 /* LaunchScreen.xib */,
+				287D8E4819DA8362000BB214 /* Supporting Files */,
+			);
+			path = RCPasswordlessLoginDemo;
+			sourceTree = "<group>";
+		};
+		287D8E4819DA8362000BB214 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				287D8E4919DA8362000BB214 /* Info.plist */,
+				287D8E4A19DA8362000BB214 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		287D8E6119DA8362000BB214 /* RCPasswordlessLoginDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				287D8E6419DA8362000BB214 /* RCPasswordlessLoginDemoTests.m */,
+				287D8E6219DA8362000BB214 /* Supporting Files */,
+			);
+			path = RCPasswordlessLoginDemoTests;
+			sourceTree = "<group>";
+		};
+		287D8E6219DA8362000BB214 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				287D8E6319DA8362000BB214 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		287D8E6E19DA8380000BB214 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				287D8E6F19DA8394000BB214 /* RCPasswordlessLogin.h */,
+				287D8E7019DA8394000BB214 /* RCPasswordlessLogin.m */,
+				287D8E7119DA8394000BB214 /* RCPasswordlessUser.h */,
+				287D8E7219DA8394000BB214 /* RCPasswordlessUser.m */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		287D8E4419DA8362000BB214 /* RCPasswordlessLoginDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 287D8E6819DA8362000BB214 /* Build configuration list for PBXNativeTarget "RCPasswordlessLoginDemo" */;
+			buildPhases = (
+				287D8E4119DA8362000BB214 /* Sources */,
+				287D8E4219DA8362000BB214 /* Frameworks */,
+				287D8E4319DA8362000BB214 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RCPasswordlessLoginDemo;
+			productName = RCPasswordlessLoginDemo;
+			productReference = 287D8E4519DA8362000BB214 /* RCPasswordlessLoginDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		287D8E5D19DA8362000BB214 /* RCPasswordlessLoginDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 287D8E6B19DA8362000BB214 /* Build configuration list for PBXNativeTarget "RCPasswordlessLoginDemoTests" */;
+			buildPhases = (
+				287D8E5A19DA8362000BB214 /* Sources */,
+				287D8E5B19DA8362000BB214 /* Frameworks */,
+				287D8E5C19DA8362000BB214 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				287D8E6019DA8362000BB214 /* PBXTargetDependency */,
+			);
+			name = RCPasswordlessLoginDemoTests;
+			productName = RCPasswordlessLoginDemoTests;
+			productReference = 287D8E5E19DA8362000BB214 /* RCPasswordlessLoginDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		287D8E3D19DA8362000BB214 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Baluta Cristian";
+				TargetAttributes = {
+					287D8E4419DA8362000BB214 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					287D8E5D19DA8362000BB214 = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 287D8E4419DA8362000BB214;
+					};
+				};
+			};
+			buildConfigurationList = 287D8E4019DA8362000BB214 /* Build configuration list for PBXProject "RCPasswordlessLoginDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 287D8E3C19DA8362000BB214;
+			productRefGroup = 287D8E4619DA8362000BB214 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				287D8E4419DA8362000BB214 /* RCPasswordlessLoginDemo */,
+				287D8E5D19DA8362000BB214 /* RCPasswordlessLoginDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		287D8E4319DA8362000BB214 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				287D8E5419DA8362000BB214 /* Main.storyboard in Resources */,
+				287D8E5919DA8362000BB214 /* LaunchScreen.xib in Resources */,
+				287D8E5619DA8362000BB214 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		287D8E5C19DA8362000BB214 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		287D8E4119DA8362000BB214 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				287D8E7419DA8394000BB214 /* RCPasswordlessUser.m in Sources */,
+				287D8E7319DA8394000BB214 /* RCPasswordlessLogin.m in Sources */,
+				287D8E5119DA8362000BB214 /* ViewController.m in Sources */,
+				287D8E4E19DA8362000BB214 /* AppDelegate.m in Sources */,
+				287D8E4B19DA8362000BB214 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		287D8E5A19DA8362000BB214 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				287D8E6519DA8362000BB214 /* RCPasswordlessLoginDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		287D8E6019DA8362000BB214 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 287D8E4419DA8362000BB214 /* RCPasswordlessLoginDemo */;
+			targetProxy = 287D8E5F19DA8362000BB214 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		287D8E5219DA8362000BB214 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				287D8E5319DA8362000BB214 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		287D8E5719DA8362000BB214 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				287D8E5819DA8362000BB214 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		287D8E6619DA8362000BB214 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		287D8E6719DA8362000BB214 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		287D8E6919DA8362000BB214 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RCPasswordlessLoginDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		287D8E6A19DA8362000BB214 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RCPasswordlessLoginDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		287D8E6C19DA8362000BB214 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RCPasswordlessLoginDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RCPasswordlessLoginDemo.app/RCPasswordlessLoginDemo";
+			};
+			name = Debug;
+		};
+		287D8E6D19DA8362000BB214 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RCPasswordlessLoginDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RCPasswordlessLoginDemo.app/RCPasswordlessLoginDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		287D8E4019DA8362000BB214 /* Build configuration list for PBXProject "RCPasswordlessLoginDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				287D8E6619DA8362000BB214 /* Debug */,
+				287D8E6719DA8362000BB214 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		287D8E6819DA8362000BB214 /* Build configuration list for PBXNativeTarget "RCPasswordlessLoginDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				287D8E6919DA8362000BB214 /* Debug */,
+				287D8E6A19DA8362000BB214 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		287D8E6B19DA8362000BB214 /* Build configuration list for PBXNativeTarget "RCPasswordlessLoginDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				287D8E6C19DA8362000BB214 /* Debug */,
+				287D8E6D19DA8362000BB214 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 287D8E3D19DA8362000BB214 /* Project object */;
+}
