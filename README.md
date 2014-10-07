@@ -1,7 +1,7 @@
-RCLog
-=====
+RCLogin
+=======
 
-This is a replacement of the NSLog in objective-c. The informations NSLog outputs are not really useful, RCLog outputs the filename and line number where the log occurred. It comes with some other great shortcuts as well and you can see them in the samples beneath:
+Painless login system without password for mobile
 
 	RCLog(fmt, ... ); // A replacement for NSLog
 
