@@ -9,7 +9,7 @@
 #import "RCPasswordlessLogin.h"
 #import "RCPasswordlessUser.h"
 
-@interface RCPasswordlessLogin ()
+@interface RCPasswordlessLogin () <NSURLSessionDelegate>
 
 @property (nonatomic, copy) NSString *request;
 @property (nonatomic, strong) NSURL *serviceURL;
@@ -24,13 +24,12 @@ static dispatch_once_t _oncePredicate;
 
 + (instancetype)sharedLogin {
 	dispatch_once(&_oncePredicate, ^{
-		NSLog(@"Not good, this shouldn't be called ever. Use [RCPasswordlessLogin initWithServiceURL:...]; first");
-		_instance = [[self alloc] init];
+		assert(@"Call [RCPasswordlessLogin initWithServiceURL:...] before using this method");
 	});
 	return _instance;
 }
 
-+ (instancetype)initWithServiceURL:(NSURL *)serviceURL {
++ (instancetype)loginWithServiceURL:(NSURL *)serviceURL {
 	dispatch_once(&_oncePredicate, ^{
 		_instance = [[self alloc] initWithServiceURL:serviceURL];
 	});
@@ -40,7 +39,6 @@ static dispatch_once_t _oncePredicate;
 - (instancetype)initWithServiceURL:(NSURL *)serviceURL {
 	self = [super init];
 	if (self) {
-		NSLog(@"Register user with serviceURL: %@", serviceURL);
 		_serviceURL = serviceURL;
 		
 		_otherDevices = [NSArray array];
@@ -55,35 +53,111 @@ static dispatch_once_t _oncePredicate;
 }
 
 - (void)loginWithCompletion:(RCPasswordlessLoginLoginBlock)completionBlock {
-	[self loginWithEmail:nil facebookID:nil completion:completionBlock];
+	[self loginWithEmail:nil facebookID:nil extraInfo:nil completion:completionBlock];
 }
 
-- (void)loginWithEmail:(NSString *)email completion:(RCPasswordlessLoginLoginBlock)completionBlock {
-	[self loginWithEmail:email facebookID:nil completion:completionBlock];
-}
-
-- (void)loginWithFacebookID:(NSNumber *)facebookID completion:(RCPasswordlessLoginLoginBlock)completionBlock {
-	[self loginWithEmail:nil facebookID:facebookID completion:completionBlock];
-}
-
-- (void)loginWithEmail:(NSString *)email facebookID:(NSNumber *)facebookID
+- (void)loginWithEmail:(NSString *)email
+			 extraInfo:(NSDictionary *)info
 			completion:(RCPasswordlessLoginLoginBlock)completionBlock {
 	
-	NSDictionary *parameters = @{
-								 @"uuid":_currentDevice.uuid,
-								 @"deviceModel":_currentDevice.deviceModel,
-								 @"deviceName":_currentDevice.deviceName,
-								 @"systemVersion":_currentDevice.systemVersion,
-								 @"facebookID":facebookID,
-								 @"email":email,
-								 @"command":@"login_or_register"};
+	[self loginWithEmail:email facebookID:nil extraInfo:info completion:completionBlock];
+}
+
+- (void)loginWithFacebookID:(NSNumber *)facebookID
+				  extraInfo:(NSDictionary *)info
+				 completion:(RCPasswordlessLoginLoginBlock)completionBlock {
 	
+	[self loginWithEmail:nil facebookID:facebookID extraInfo:info completion:completionBlock];
+}
+
+- (void)loginWithEmail:(NSString *)email
+			facebookID:(NSNumber *)facebookID
+			 extraInfo:(NSDictionary *)info
+			completion:(RCPasswordlessLoginLoginBlock)completionBlock {
+	
+	NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:@{
+		  @"uuid":_currentDevice.uuid,
+		  @"deviceModel":_currentDevice.deviceModel,
+		  @"deviceName":_currentDevice.deviceName,
+		  @"systemVersion":_currentDevice.systemVersion,
+		  @"facebookID":facebookID==nil ? @"0" : facebookID,
+		  @"email":email==nil ? @"" : email,
+		  @"command":@"login_or_register"}];
+	
+	if (info != nil) [parameters addEntriesFromDictionary:info];
+	
+	[self requestWithDictionary:parameters completion:^(BOOL success) {
+		completionBlock(success);
+	}];
 }
 
 - (void)unregisterThisDevice {
 	NSDictionary *parameters = @{
-								 @"uuid":_currentDevice.uuid,
-								 @"command":@"deregister"};
+		 @"uuid":_currentDevice.uuid,
+		 @"command":@"deregister"};
+	
+	[self requestWithDictionary:parameters completion:^(BOOL success) {
+		
+	}];
+}
+
+
+#pragma mark Utils
+
+- (void)requestWithDictionary:(NSDictionary *)info completion:(RCPasswordlessLoginLoginBlock)completionBlock {
+	NSLog(@"requestWithDictionary %@", info);
+	
+	NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+	NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:_serviceURL
+														   cachePolicy:NSURLRequestReloadIgnoringCacheData
+													   timeoutInterval:60.0];
+	
+	NSMutableString *postStr = [[NSMutableString alloc] init];
+	for (id key in info) [postStr appendFormat:@"%@=%@&", key, [info objectForKey:key]];
+	NSData *postData = [postStr dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+	
+	[request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+	[request setHTTPMethod:@"POST"];
+	[request setHTTPBody:postData];
+	
+	NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request
+													completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+		
+		if (!error) {
+			NSError *error_;
+			NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error_];
+			RCLog(@"%@", responseDict);
+			[self parseUsersFromDictionary:responseDict];
+//			RCLog(@"%@", error_);
+//			NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//			RCLogO(newStr);
+		}
+//		RCLog(@"%@", response);
+	}];
+	
+	[postDataTask resume];
+}
+
+- (void)parseUsersFromDictionary:(NSDictionary *)dict {
+	NSMutableArray *arr = [NSMutableArray array];
+	NSArray *users = dict[@"users"];
+	for (NSDictionary *user in users) {
+		RCPasswordlessUser *u = [[RCPasswordlessUser alloc] init];
+		u.uuid = user[@"uuid"];
+		u.email = user[@"email"];
+		u.deviceModel = user[@"deviceModel"];
+		u.deviceName = user[@"name"];
+		u.systemVersion = user[@"systemVersion"];
+		
+		if ( ! [_currentDevice.uuid isEqualToString:u.uuid]) {
+			[arr addObject:u];
+		}
+		else {
+			_currentDevice.email = u.email;
+		}
+	}
+	_otherDevices = [NSArray arrayWithArray:arr];
 }
 
 @end

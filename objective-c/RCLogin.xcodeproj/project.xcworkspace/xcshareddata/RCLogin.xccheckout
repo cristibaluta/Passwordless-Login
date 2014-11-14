@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D6D09D3A-E2FA-45E0-91A8-49285783BB42</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RCLogin</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C6BADE8AF6AFFF4A51BB1B928455B2AB76379A5A</key>
+		<string>https://github.com/ralcr/Passwordless-Login.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>objective-c/RCLogin.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C6BADE8AF6AFFF4A51BB1B928455B2AB76379A5A</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ralcr/Passwordless-Login.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C6BADE8AF6AFFF4A51BB1B928455B2AB76379A5A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C6BADE8AF6AFFF4A51BB1B928455B2AB76379A5A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Passwordless-Login</string>
+		</dict>
+	</array>
+</dict>
+</plist>
