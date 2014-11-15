@@ -29,7 +29,7 @@ static dispatch_once_t _oncePredicate;
 	return _instance;
 }
 
-+ (instancetype)loginWithServiceURL:(NSURL *)serviceURL {
++ (instancetype)initWithServiceURL:(NSURL *)serviceURL {
 	dispatch_once(&_oncePredicate, ^{
 		_instance = [[self alloc] initWithServiceURL:serviceURL];
 	});
@@ -128,12 +128,14 @@ static dispatch_once_t _oncePredicate;
 			NSError *error_;
 			NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error_];
 			RCLog(@"%@", responseDict);
-			[self parseUsersFromDictionary:responseDict];
+			if (!error_) {
+				[self parseUsersFromDictionary:responseDict];
+			}
+			
 //			RCLog(@"%@", error_);
 //			NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 //			RCLogO(newStr);
 		}
-//		RCLog(@"%@", response);
 	}];
 	
 	[postDataTask resume];

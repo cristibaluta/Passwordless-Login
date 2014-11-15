@@ -18,6 +18,7 @@
 @interface RCPasswordlessUser : NSObject
 
 /*!
+ @abstract
  - uuid is the unique identifier provided by Apple for each app
  - If the device is not an Apple device, uuid is a random string that is kept persistently
  */
@@ -26,5 +27,6 @@
 @property (nonatomic, copy) NSString *deviceName;
 @property (nonatomic, copy) NSString *systemVersion;
 @property (nonatomic, copy) NSString *email;
+@property (nonatomic, copy) NSString *name;
 
 @end

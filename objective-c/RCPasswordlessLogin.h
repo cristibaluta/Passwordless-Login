@@ -53,12 +53,13 @@ typedef void(^RCPasswordlessLoginLoginBlock)(BOOL success);
 + (instancetype)sharedLogin;
 
 /*!
- @abstract Convenience method for initialization. 
+ @abstract Static initialization.
  @param serviceURL Is the API of the serverside app that handles your users.
  */
-+ (instancetype)loginWithServiceURL:(NSURL *)serviceURL;
++ (instancetype)initWithServiceURL:(NSURL *)serviceURL;
+
 /*!
- @abstract Convenience method for initialization.
+ @abstract Convenience initialization.
  @param serviceURL Is the API of the serverside app that handles your users.
  */
 - (instancetype)initWithServiceURL:(NSURL *)serviceURL;
