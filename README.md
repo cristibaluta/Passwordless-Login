@@ -1,33 +1,31 @@
-RCLogin
-=======
+RCPasswordlessLogin
+===================
 
-Painless login system without password for mobile
+Painless login system without password for mobile. It works by registering each device uuid on the server without asking the user.
+Once you've done that, you can add new info to that user as it gets collected, for example after you login with facebook you'll associate the facebook id and email to your original user.
+Now you have multiple users with the facebook id or email that keeps them associated, and you can sync all of them.
 
-	RCLog(fmt, ... ); // A replacement for NSLog
 
-	RCLogO(obj); // Logs an object directly, no need for the hard to write NSLog(@"%@", obj)
-	RCLogS(str); // Logs a string
-	RCLogI(integer); // Integer
-	RCLogF(float); // Float
-	RCLogRect(rect); // Ever wanted to log a CGRect. Boring, use this shortcut
-	RCLogPoint(point); // CGPoint
-	RCLogSize(size); // Size
-	RCLogThread(); //  This logs the thread you are into
-	
-The possibilities are endless, please contribute if you have an idea. For the near future is planned to add a blank line between logs from different classes, this will make the reading even easier.
+Advantages
+==========
+Why not using just facebook? Few reasons:
+- This system registers your users without asking. Me as a user i totaly hate to login before seeing what can the app do. Later if i decided that i like the app i can login with facebook in order to have synchronization or just take advantage of it's features
+- You could login to webpages by entering your email only, you'll just have to confirm it. No need to remind one more password
 
 
 Usage
 =====
 
-Add the RCLog classes to your project then import it once in the .pch file
+If your serverside app can handle more options you can pass an extra dictionary, like the locationDictionary in this example.
 
-	#import "RCLog.h"
+	#import "RCPasswordlessLogin.h"
 	
-
-Sample output
-=============
-
-	RCLog(@"this is a string");
-	
-	MyClass.m:1: this is a string
+	NSDictionary *locationDictionary = @{
+		@"loc_latitude":[NSNumber numberWithDouble:45.5],
+		@"loc_longitude":[NSNumber numberWithDouble:26.4],
+	};
+			
+	RCPasswordlessLogin *login = [RCPasswordlessLogin initWithServiceURL:[NSURL URLWithString:REGISTER_USER_URL]];
+	[login loginWithEmail:@"email" facebookID:@1232314324 extraInfo:locationDictionary completion:^(BOOL success) {
+					
+	}];
