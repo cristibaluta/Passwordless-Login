@@ -125,16 +125,16 @@ static dispatch_once_t _oncePredicate;
 													completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 		
 		if (!error) {
-			NSError *error_;
-			NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error_];
-			RCLog(@"%@", responseDict);
-			if (!error_) {
+			NSError *jsonError;
+			NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonError];
+			NSLog(@"%@", responseDict);
+			if (!jsonError) {
 				[self parseUsersFromDictionary:responseDict];
 			}
 			
 //			RCLog(@"%@", error_);
 //			NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//			RCLogO(newStr);
+//			NSLogO(newStr);
 		}
 	}];
 	
@@ -142,8 +142,10 @@ static dispatch_once_t _oncePredicate;
 }
 
 - (void)parseUsersFromDictionary:(NSDictionary *)dict {
+	
 	NSMutableArray *arr = [NSMutableArray array];
 	NSArray *users = dict[@"users"];
+	
 	for (NSDictionary *user in users) {
 		RCPasswordlessUser *u = [[RCPasswordlessUser alloc] init];
 		u.uuid = user[@"uuid"];
