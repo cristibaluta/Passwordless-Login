@@ -86,9 +86,7 @@ static dispatch_once_t _oncePredicate;
 	
 	if (info != nil) [parameters addEntriesFromDictionary:info];
 	
-	[self requestWithDictionary:parameters completion:^(BOOL success) {
-		completionBlock(success);
-	}];
+	[self requestWithDictionary:parameters completion:completionBlock];
 }
 
 - (void)unregisterThisDevice {
@@ -131,10 +129,13 @@ static dispatch_once_t _oncePredicate;
 			if (!jsonError) {
 				[self parseUsersFromDictionary:responseDict];
 			}
-			
+			completionBlock(jsonError==nil);
 //			RCLog(@"%@", error_);
 //			NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 //			NSLogO(newStr);
+		}
+		else {
+			completionBlock(NO);
 		}
 	}];
 	
@@ -150,8 +151,9 @@ static dispatch_once_t _oncePredicate;
 		RCPasswordlessUser *u = [[RCPasswordlessUser alloc] init];
 		u.uuid = user[@"uuid"];
 		u.email = user[@"email"];
+		u.name = user[@"name"];
 		u.deviceModel = user[@"deviceModel"];
-		u.deviceName = user[@"name"];
+		u.deviceName = user[@"deviceName"];
 		u.systemVersion = user[@"systemVersion"];
 		
 		if ( ! [_currentDevice.uuid isEqualToString:u.uuid]) {
@@ -159,6 +161,7 @@ static dispatch_once_t _oncePredicate;
 		}
 		else {
 			_currentDevice.email = u.email;
+			_currentDevice.name = u.name;
 		}
 	}
 	_otherDevices = [NSArray arrayWithArray:arr];
