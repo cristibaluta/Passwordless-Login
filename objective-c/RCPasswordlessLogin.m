@@ -99,6 +99,15 @@ static dispatch_once_t _oncePredicate;
 	}];
 }
 
+- (RCPasswordlessUser *)deviceForUUID:(NSString *)uuid {
+	for (RCPasswordlessUser *user in _otherDevices) {
+		if ([user.uuid isEqualToString:uuid]) {
+			return user;
+		}
+	}
+	return nil;
+}
+
 
 #pragma mark Utils
 

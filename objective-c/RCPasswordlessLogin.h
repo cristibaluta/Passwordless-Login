@@ -45,6 +45,15 @@ typedef void(^RCPasswordlessLoginLoginBlock)(BOOL success);
  */
 @property (nonatomic, readonly, strong) RCPasswordlessUser *currentDevice;
 
+/*!
+ Search for the device coresponding to the passed uuid.
+ 
+ @discussion Useful to display info about a specific device you know the uuuid of
+ 
+ @param uuid
+ */
+- (RCPasswordlessUser *)deviceForUUID:(NSString *)uuid;
+
 
 /*!
  @abstract The singleton to access your users.
