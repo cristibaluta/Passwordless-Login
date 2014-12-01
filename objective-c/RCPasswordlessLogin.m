@@ -138,7 +138,9 @@ static dispatch_once_t _oncePredicate;
 			if (!jsonError) {
 				[self parseUsersFromDictionary:responseDict];
 			}
-			completionBlock(jsonError==nil);
+			_loggedIn = YES;
+			
+			completionBlock (jsonError == nil);
 //			RCLog(@"%@", error_);
 //			NSString* newStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 //			NSLogO(newStr);

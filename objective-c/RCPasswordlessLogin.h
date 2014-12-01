@@ -45,6 +45,8 @@ typedef void(^RCPasswordlessLoginLoginBlock)(BOOL success);
  */
 @property (nonatomic, readonly, strong) RCPasswordlessUser *currentDevice;
 
+@property (nonatomic, readonly) BOOL loggedIn;
+
 /*!
  Search for the device coresponding to the passed uuid.
  
