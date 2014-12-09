@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Baluta Cristian. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+#include <sys/sysctl.h>
 #import "RCPasswordlessLogin.h"
 #import "RCPasswordlessUser.h"
 
@@ -45,7 +47,7 @@ static dispatch_once_t _oncePredicate;
 		
 		_currentDevice = [[RCPasswordlessUser alloc] init];
 		_currentDevice.uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-		_currentDevice.deviceModel = [[UIDevice currentDevice] model];
+		_currentDevice.deviceModel = [self deviceModel];
 		_currentDevice.deviceName = [[UIDevice currentDevice] name];
 		_currentDevice.systemVersion = [[UIDevice currentDevice] systemVersion];
 	}
@@ -112,7 +114,7 @@ static dispatch_once_t _oncePredicate;
 #pragma mark Utils
 
 - (void)requestWithDictionary:(NSDictionary *)info completion:(RCPasswordlessLoginLoginBlock)completionBlock {
-	NSLog(@"requestWithDictionary %@", info);
+//	NSLog(@"requestWithDictionary %@", info);
 	
 	NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
 	NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
@@ -134,7 +136,7 @@ static dispatch_once_t _oncePredicate;
 		if (!error) {
 			NSError *jsonError;
 			NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonError];
-			NSLog(@"%@", responseDict);
+//			NSLog(@"%@", responseDict);
 			if (!jsonError) {
 				[self parseUsersFromDictionary:responseDict];
 			}
@@ -176,6 +178,16 @@ static dispatch_once_t _oncePredicate;
 		}
 	}
 	_otherDevices = [NSArray arrayWithArray:arr];
+}
+
+- (NSString *)deviceModel {
+	size_t size;
+	sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+	char *model = malloc(size);
+	sysctlbyname("hw.machine", model, &size, NULL, 0);
+	NSString *deviceModel = [NSString stringWithCString:model encoding:NSUTF8StringEncoding];
+	free(model);
+	return deviceModel;
 }
 
 @end
